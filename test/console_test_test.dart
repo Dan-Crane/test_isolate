@@ -1,4 +1,4 @@
-import 'package:console_test/console_test.dart';
+import 'package:console_test/simple_worker_isolate.dart';
 import 'package:test/test.dart';
 
 // void main() {
