@@ -3,8 +3,11 @@ import 'dart:io';
 import 'dart:isolate';
 
 Future<List<dynamic>> parseInBackground() async {
+  final time = Stopwatch()..start();
   final p = ReceivePort();
   await Isolate.spawn(_readAndParseJson, p.sendPort);
+  time.stop();
+  print('data parsing took -- ${time.elapsedMilliseconds} milliseconds');
   return await p.first;
 }
 
